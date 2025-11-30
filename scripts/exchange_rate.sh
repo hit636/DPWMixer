@@ -7,7 +7,7 @@ if [ ! -d "./logs/LongForecasting" ]; then
     mkdir ./logs/LongForecasting
 fi
 seq_len=96
-model_name=AWEMixer
+model_name=AHEWN
 
 python -u run_longExp.py \
   --is_training 1 \

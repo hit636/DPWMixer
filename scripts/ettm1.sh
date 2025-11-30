@@ -7,35 +7,35 @@ if [ ! -d "./logs/LongForecasting" ]; then
     mkdir ./logs/LongForecasting
 fi
 seq_len=96
-model_name=AWEMixer
+model_name=AHEWN
 
-python -u run_longExp.py \
-  --is_training 1 \
-  --root_path ./dataset/ \
-  --data_path ETTm1.csv \
-  --model_id ETTm1_$seq_len'_'96 \
-  --model $model_name \
-  --data ETTm1 \
-  --features M \
-  --seq_len $seq_len \
-  --pred_len 96 \
-  --enc_in 7 \
-  --des 'Exp' \
-  --itr 1 --batch_size 32 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'ETTm1_$seq_len'_'96.log
+# python -u run_longExp.py \
+#   --is_training 1 \
+#   --root_path ./dataset/ \
+#   --data_path ETTm1.csv \
+#   --model_id ETTm1_$seq_len'_'96 \
+#   --model $model_name \
+#   --data ETTm1 \
+#   --features M \
+#   --seq_len $seq_len \
+#   --pred_len 96 \
+#   --enc_in 7 \
+#   --des 'Exp' \
+#   --itr 1 --batch_size 32 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'ETTm1_$seq_len'_'96.log
 
-python -u run_longExp.py \
-  --is_training 1 \
-  --root_path ./dataset/ \
-  --data_path ETTm1.csv \
-  --model_id ETTm1_$seq_len'_'192 \
-  --model $model_name \
-  --data ETTm1 \
-  --features M \
-  --seq_len $seq_len \
-  --pred_len 192 \
-  --enc_in 7 \
-  --des 'Exp' \
-  --itr 1 --batch_size 32 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'ETTm1_$seq_len'_'192.log
+# python -u run_longExp.py \
+#   --is_training 1 \
+#   --root_path ./dataset/ \
+#   --data_path ETTm1.csv \
+#   --model_id ETTm1_$seq_len'_'192 \
+#   --model $model_name \
+#   --data ETTm1 \
+#   --features M \
+#   --seq_len $seq_len \
+#   --pred_len 192 \
+#   --enc_in 7 \
+#   --des 'Exp' \
+#   --itr 1 --batch_size 32 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'ETTm1_$seq_len'_'192.log
 
 python -u run_longExp.py \
   --is_training 1 \

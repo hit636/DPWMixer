@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import  Autoformer,Informer, DLinear, AWEMixer
+from models import  Autoformer,Informer, DLinear, AHEWN
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -26,7 +26,7 @@ class Exp_Main(Exp_Basic):
     def _build_model(self):
         model_dict = {
             'Autoformer': Autoformer,
-            'AWEMixer': AWEMixer,
+            'AHEWN': AHEWN,
             'Informer': Informer,
             'DLinear': DLinear
         }
@@ -65,7 +65,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                        if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -73,7 +73,7 @@ class Exp_Main(Exp_Basic):
                             else:
                                 outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
-                    if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                    if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                         outputs = self.model(batch_x)
                     else:
                         if self.args.output_attention:
@@ -137,7 +137,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                        if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -151,7 +151,7 @@ class Exp_Main(Exp_Basic):
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
-                    if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                    if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                     else:
                         if self.args.output_attention:
@@ -236,7 +236,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                        if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -244,7 +244,7 @@ class Exp_Main(Exp_Basic):
                             else:
                                 outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
-                    if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                    if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                     else:
                         if self.args.output_attention:
@@ -324,7 +324,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                        if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -332,7 +332,7 @@ class Exp_Main(Exp_Basic):
                             else:
                                 outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
-                    if 'Linear' in self.args.model or 'AWEMixer' in self.args.model:
+                    if 'Linear' in self.args.model or 'AHEWN' in self.args.model:
                         outputs = self.model(batch_x)
                     else:
                         if self.args.output_attention:
