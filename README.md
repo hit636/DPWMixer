@@ -22,6 +22,7 @@ dataset
 │── ETTm1.csv
 │── ETTm2.csv
 ├── exchange_rate.csv
+│── traffic.csv
 └── weather.csv
 
 ```
