@@ -1,7 +1,8 @@
 
 
-This is an official implementation of [AWEMixer: Adaptive Wavelet-Enhanced Mixer Network for Long-Term Time Series Forecasting].
-<img width="1321" height="624" alt="image" src="https://github.com/user-attachments/assets/455367fe-64ba-476f-8218-bc7930d41311" />
+This is an official implementation of [DPWMixer: Dual-Path Wavelet Mixer for Long-Term Time Series Forecasting].
+
+<img width="2045" height="1079" alt="image" src="https://github.com/user-attachments/assets/6856de61-ea99-4ac3-a97a-e5e913b0c4a7" />
 
 
 ### Prerequisites
@@ -54,7 +55,7 @@ The training scripts for all datasets are located in the `./scripts` directory.
 If you find this repo useful, please cite our paper as follows:
 
 ```
-AWEMixer: Adaptive Wavelet-Enhanced Mixer Network for Long-Term Time Series Forecasting
+DPWMixer: Dual-Path Wavelet Mixer for Long-Term Time Series Forecasting
 
 ```
 
