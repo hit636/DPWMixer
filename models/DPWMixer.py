@@ -85,6 +85,10 @@ class HaarWaveletSplit(nn.Module):
 
 class DualTrendMixer(nn.Module):
     """
+    替换 KAN 模块。
+    专门设计用于捕捉趋势关系的混合器。
+    
+    包含两条路径：
     1. Global Trend Path: 纯线性映射 (DLinear思想)，捕捉整体单调性/线性趋势。
     2. Local Evolution Path (Patch+MLP): 捕捉平滑的非线性趋势变化。
     """
@@ -155,15 +159,21 @@ class DualTrendMixer(nn.Module):
         
         return out
 
+# =====================================================================================
+# 4. 整体架构: DPWMixer
+# =====================================================================================
 
 class Model(nn.Module):
+    """
+DPWMixer
+    """
     def __init__(self, configs):
         super(Model, self).__init__()
         self.configs = configs
         self.seq_len = configs.seq_len
         self.pred_len = configs.pred_len
         self.enc_in = configs.enc_in
-        self.down_sampling_layers = getattr(configs, 'down_sampling_layers', 3)
+        self.down_sampling_layers = getattr(configs, 'down_sampling_layers', 2)
         
         # Patching 超参
         self.patch_len = getattr(configs, 'patch_len', 16)
